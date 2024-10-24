@@ -1,4 +1,4 @@
-#include <cmath> 
+#include <cmath>
 
 class FuncClass {
 public:
@@ -8,8 +8,9 @@ public:
 double FuncClass::FuncA(int n, double x) {
     double sum = 0.0;
 
-    // Обмежуємо кількість ітерацій до 3
-    for (int i = 0; i < 3; ++i) { // ітеруємо лише 3 рази
+    // Limit to the first 3 terms or n terms, whichever is smaller
+    int limit = std::min(n, 3);
+    for (int i = 0; i < limit; ++i) {
         double term = (std::pow(-1, i) * std::tgamma(2 * i + 1)) /
                       ((1 - 2 * i) * std::tgamma(i + 1) * std::pow(4, i)) * std::pow(x, i);
         sum += term;
@@ -17,5 +18,4 @@ double FuncClass::FuncA(int n, double x) {
 
     return sum;
 }
-
 

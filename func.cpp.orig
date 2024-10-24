@@ -1,0 +1,32 @@
+<<<<<<< HEAD
+#include <cmath> 
+=======
+#include <cmath>
+>>>>>>> branchA
+
+class FuncClass {
+public:
+    double FuncA(int n, double x);
+};
+
+double FuncClass::FuncA(int n, double x) {
+    double sum = 0.0;
+
+<<<<<<< HEAD
+    // Обмежуємо кількість ітерацій до 3
+    for (int i = 0; i < 3; ++i) { // ітеруємо лише 3 рази
+        double term = (std::pow(-1, i) * std::tgamma(2 * i + 1)) /
+                      ((1 - 2 * i) * std::tgamma(i + 1) * std::pow(4, i)) * std::pow(x, i);
+=======
+    for (int i = 0; i < n; ++i) {
+        double term = (std::pow(-1, i) * std::tgamma(2 * i + 1)) / 
+                      ((1 - 2 * i) * std::tgamma(i + 1) * std::pow(4, i)) * std::pow(x, i);
+        
+>>>>>>> branchA
+        sum += term;
+    }
+
+    return sum;
+}
+
+
