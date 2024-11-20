@@ -3,8 +3,10 @@
 
 class FuncClass {
 public:
-    double FuncA(int n = 0);  // Функція, що повертає 0
+    // Оголошення функції з двома параметрами
+    double FuncA(int n, double x);
 };
 
-#endif
+#endif // FUNC_H
+
 
