@@ -1,14 +1,12 @@
+#include "func.h"
 #include <cmath>
+#include <algorithm> // Для std::min
 
-class FuncClass {
-public:
-    double FuncA(int n, double x);
-};
-
+// Реалізація функції повинна відповідати оголошенню в func.h
 double FuncClass::FuncA(int n, double x) {
     double sum = 0.0;
 
-    // Limit to the first 3 terms or n terms, whichever is smaller
+    // Обмежуємо кількість членів до 3 або n, що менше
     int limit = std::min(n, 3);
     for (int i = 0; i < limit; ++i) {
         double term = (std::pow(-1, i) * std::tgamma(2 * i + 1)) /
@@ -18,4 +16,5 @@ double FuncClass::FuncA(int n, double x) {
 
     return sum;
 }
+
 
