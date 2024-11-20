@@ -1,27 +1,23 @@
-# Compiler
 CXX = g++
-
-# Compiler flags
 CXXFLAGS = -std=c++17 -Wall -Wextra
+LDFLAGS =
 
-# Source and header files
-SRC = main.cpp func.cpp
-OBJ = $(SRC:.cpp=.o)
-
-# Output binary
 TARGET = program
 
-# Build rules
+SRCS = main.cpp func.cpp
+OBJS = $(SRCS:.cpp=.o)
+
 all: $(TARGET)
 
-$(TARGET): $(OBJ)
+$(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(OBJS) $(TARGET)
 
-.PHONY: all clean
-
+# Явні залежності
+main.o: func.h
+func.o: func.h
