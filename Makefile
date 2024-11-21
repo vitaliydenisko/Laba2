@@ -1,23 +1,17 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
-LDFLAGS =
 
-TARGET = program
+all: program
 
-SRCS = main.cpp func.cpp
-OBJS = $(SRCS:.cpp=.o)
+program: main.o func.o
+	$(CXX) $(CXXFLAGS) -o program main.o func.o
 
-all: $(TARGET)
+main.o: main.cpp func.h
+	$(CXX) $(CXXFLAGS) -c main.cpp
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+func.o: func.cpp func.h
+	$(CXX) $(CXXFLAGS) -c func.cpp
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f *.o program
 
-# Явні залежності
-main.o: func.h
-func.o: func.h
