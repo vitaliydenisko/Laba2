@@ -2,23 +2,23 @@
 #include "func.h"
 
 int main() {
-    FuncClass funcObj;
+    FuncClass obj;
 
     int n;
     double x;
 
-    // Введення параметрів
+    // Запитуємо користувача на введення параметрів
     std::cout << "Enter the number of terms (n): ";
     std::cin >> n;
 
     std::cout << "Enter the value of x: ";
     std::cin >> x;
 
-    // Виклик функції
-    double result = funcObj.FuncA(n, x);
+    // Викликаємо функцію FuncA з переданими аргументами
+    double result = obj.FuncA(n, x);
 
-    // Вивід результату
-    std::cout << "Result of the series calculation: " << result << std::endl;
+    // Виводимо результат
+    std::cout << "Result: " << result << std::endl;
 
     return 0;
 }
