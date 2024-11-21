@@ -1,5 +1,3 @@
-bin_PROGRAMS = program
-program_SOURCES = main.cpp func.cpp func.h
-
-dist_doc_DATA = README.md
+check_PROGRAMS = test
+test_SOURCES = test.cpp func.cpp func.h
 
