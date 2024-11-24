@@ -11,16 +11,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: sudo apt update && sudo apt install -y g++
+      - name: Install dependencies
+        run: sudo apt update && sudo apt install -y g++ make dpkg-dev build-essential
 
-    - name: Build project
-      run: |
-        make clean
-        make all
+      - name: List files
+        run: ls -R
 
+      - name: Build project
+        run: |
+          make clean
+          make all
+
+      - name: Create tarball
+        run: make dist
+
+      - name: Build deb package
+        run: dpkg-buildpackage -us -uc
